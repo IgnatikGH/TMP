@@ -1,32 +1,29 @@
-name: example-actions
-on:
-  push:
-    branches: ["Praktika4"]
+ name: Run Tests
 
-jobs:
-  build-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name:  Set up Python
-        uses: actions/checkout@v4
+   on:
+     push:
+       branches:
+         - main
+     pull_request:
+       branches:
+         - main
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-           python-version: '3.x'
+   jobs:
+     run:
+       runs-on: ubuntu-latest
 
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
+       steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
 
-      - name: Setup python environment
-        run: |
-          python3 -m venv venv
-          source venv/bin/activate
+       - name: Set up Python
+         uses: actions/setup-python@v2
+         with:
+           python-version: '3.8'  # Укажите нужную версию Python
 
-      - name: Install libraries
-        run: |
-          pip install -r requirements.txt
+       - name: Install dependencies
+         run: |
+           pip install --upgrade pip
 
-      - name: Tests
-        run: |
-          tests/test.py
+       - name: Run test script
+         run: python Tests/test.py
