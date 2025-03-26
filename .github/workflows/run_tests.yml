@@ -1,29 +1,29 @@
 name: Run Tests
 
-   on:
-     push:
-       branches:
-         - main
-     pull_request:
-       branches:
-         - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-   jobs:
-     run:
-       runs-on: ubuntu-latest
+jobs:
+  run:
+    runs-on: ubuntu-latest
 
-       steps:
-       - name: Checkout code
-         uses: actions/checkout@v2
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-       - name: Set up Python
-         uses: actions/setup-python@v2
-         with:
-           python-version: '3.8'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
 
-       - name: Install dependencies
-         run: |
-           pip install --upgrade pip
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip\
 
-       - name: Run test script
-         run: python Tests/test.py
+    - name: Run test script
+      run: python Tests/test.py
