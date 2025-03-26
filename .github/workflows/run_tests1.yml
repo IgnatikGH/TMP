@@ -26,4 +26,4 @@ jobs:
         python -m pip install --upgrade pip  
 
     - name: Run tests
-      run: python venv/test.py
+      run: python venv/Scripts/test.py
