@@ -26,4 +26,4 @@ jobs:
         pip install --upgrade pip\
 
     - name: Run test script
-      run: python Tests/test.py
+      run: python tests/test.py
