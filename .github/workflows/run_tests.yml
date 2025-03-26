@@ -1,7 +1,7 @@
 name: example-actions
 on:
   push:
-    branches: ["main"]
+    branches: ["Praktika4"]
 
 jobs:
   build-test:
